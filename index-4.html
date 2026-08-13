@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Certificate Verification | ENSINO</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f7fb;color:#172033}
+.wrap{max-width:680px;margin:0 auto;padding:28px 16px}
+.card{background:#fff;border-radius:20px;padding:30px 24px;box-shadow:0 12px 35px rgba(0,0,0,.08)}
+.brand{font-weight:800;font-size:20px}.sub{color:#667085;font-size:13px;margin-top:6px}
+h1{font-size:27px;margin:28px 0 8px}.intro{color:#667085;margin:0 0 22px}
+label{font-size:12px;font-weight:700;color:#667085;text-transform:uppercase}
+input{width:100%;padding:14px;margin:8px 0 14px;border:1px solid #ccd4df;border-radius:10px;font-size:16px}
+button{width:100%;padding:14px;border:0;border-radius:10px;background:#172033;color:white;font-size:16px;font-weight:700;cursor:pointer}
+.result{display:none;margin-top:24px;padding-top:22px;border-top:1px solid #e8edf3}
+.ok{color:#147a45;font-weight:800;font-size:18px;margin-bottom:18px}
+.row{padding:13px 0;border-top:1px solid #e8edf3}.label{font-size:11px;color:#7a8494}.value{font-size:17px;font-weight:650;margin-top:5px}
+.error{display:none;margin-top:15px;padding:12px;border-radius:10px;background:#fff0f0;color:#a52a2a;font-size:14px}
+.footer{margin-top:24px;color:#7a8494;font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="card">
+<div class="brand">ENSINO RESEARCH AND DEVELOPMENT PROGRAM</div>
+<div class="sub">Certificate Verification Portal</div>
+
+<h1>Verify Certificate</h1>
+<p class="intro">Enter the certificate ID to verify the certificate record.</p>
+
+<label for="cert">Certificate ID</label>
+<input id="cert" placeholder="e.g. ERD/DEV/11068" autocomplete="off">
+<button onclick="verify()">Verify Certificate</button>
+
+<div id="error" class="error">Certificate ID not found. Please check the ID and try again.</div>
+
+<div id="result" class="result">
+<div class="ok">✓ Certificate Verified</div>
+<div class="row"><div class="label">Student Name</div><div class="value">PRINCE NAGAR</div></div>
+<div class="row"><div class="label">Certificate ID</div><div class="value">ERD/DEV/11068</div></div>
+<div class="row"><div class="label">Program</div><div class="value">Research &amp; Development Program</div></div>
+<div class="row"><div class="label">Certificate Status</div><div class="value">Valid</div></div>
+<div class="row"><div class="label">Issued By</div><div class="value">ENSINO RESEARCH AND DEVELOPMENT PROGRAM</div></div>
+</div>
+<div class="footer">Certificate verification portal.</div>
+</div></div>
+
+<script>
+function verify(){
+  const id=document.getElementById('cert').value.trim().toUpperCase();
+  const result=document.getElementById('result');
+  const error=document.getElementById('error');
+  result.style.display='none'; error.style.display='none';
+  if(id==='ERD/DEV/11068'){
+    result.style.display='block';
+  }else{
+    error.style.display='block';
+  }
+}
+</script>
+</body>
+</html>
